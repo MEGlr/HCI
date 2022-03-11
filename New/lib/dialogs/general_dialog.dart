@@ -11,8 +11,8 @@ class GenDisplay extends StatefulWidget {
   final String right;
   final double edges;
   final Color color;
-  Widget Function() createPageR;
-  Widget Function() createPageL;
+  void Function() createPageR;
+  void Function() createPageL;
   GenDisplay({
     Key? key,
     required this.maintitle,
@@ -36,8 +36,8 @@ class _GenDisplayState extends State<GenDisplay> {
   double edges = 0;
   Color color = AppColors.PURPLE;
   //String image = '';
-  Widget Function() createPageR = () => add_product();
-  Widget Function() createPageL = () => add_product();
+  void Function() createPageR = () => add_product();
+  void Function() createPageL = () => add_product();
   bool isVisible = true;
   double edge = 0;
 
@@ -86,19 +86,35 @@ class _GenDisplayState extends State<GenDisplay> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      GenButton(
-                          maintitle: left,
-                          color: color,
-                          font: "PublicSans",
-                          edges: 20,
-                          createPage: createPageL),
+                      TextButton(
+                        child: Text(left,
+                            style: TextStyle(fontFamily: "PublicSans")),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(color),
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.circular(20.0)))),
+                        onPressed: createPageL,
+                      ),
                       const Flexible(fit: FlexFit.tight, child: SizedBox()),
-                      GenButton(
-                          maintitle: right,
-                          color: color,
-                          edges: 20,
-                          font: "PublicSans",
-                          createPage: createPageR),
+                      TextButton(
+                        child: Text(right,
+                            style: TextStyle(fontFamily: "PublicSans")),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(color),
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.circular(20.0)))),
+                        onPressed: createPageR,
+                      ),
+                      // GenButton(
+                      //     maintitle: right,
+                      //     color: color,
+                      //     edges: 20,
+                      //     font: "PublicSans",
+                      //     createPage: createPageR),
                     ])
               ],
             )

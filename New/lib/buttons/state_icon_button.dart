@@ -40,14 +40,13 @@ class _state_icon_buttonState extends State<state_icon_button> {
   @override
   Widget build(BuildContext context) {
     // bool newSelected = isSelected; //dk why needed
-    return CircleAvatar(
-        backgroundColor: color_back,
-        child: IconButton(
-          tooltip: data,
-          icon: Image.asset(isSelected ? image_off : image_on,
-              color: isSelected ? color : Colors.white),
-          onPressed: () => onPress(isSelected),
-        ));
+    return MaterialButton(
+        shape: const CircleBorder(),
+        padding: const EdgeInsets.all(15),
+        color: color_back,
+        onPressed: () => onPress(isSelected),
+        child: Image.asset(isSelected ? image_off : image_on,
+            color: isSelected ? color : Colors.white, width: 45, height: 45));
   }
 
   void onPress(bool giveSelected) {
@@ -56,3 +55,15 @@ class _state_icon_buttonState extends State<state_icon_button> {
     });
   }
 }
+
+
+        //   CircleAvatar(
+        // backgroundColor: color_back,
+        // child: IconButton(
+        //   tooltip: data,
+        //   icon: Image.asset(
+        //     isSelected ? image_off : image_on,
+        //     color: isSelected ? color : Colors.white,
+        //   ),
+        //   onPressed: () => onPress(isSelected),
+        // ));

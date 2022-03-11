@@ -74,10 +74,10 @@ class _Form_FieldState extends State<Form_Field> {
               ),
               filled: true,
               fillColor: color,
-              labelText: data,
-              labelStyle: TextStyle(color: Colors.brown),
+              //labelText: data,
+              //labelStyle: TextStyle(color: Colors.brown),
               hintText: data,
-              hintStyle: TextStyle(color: Colors.brown),
+              hintStyle: TextStyle(color: Colors.white),
               suffixIcon: IconButton(
                 onPressed: () {
                   Navigator.of(context)
