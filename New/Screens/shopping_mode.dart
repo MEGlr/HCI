@@ -3,6 +3,7 @@ import 'package:first_app/Screens/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:first_app/Screens/my_shopping_cart.dart';
+import 'package:first_app/buttons/cam_mic.dart';
 
 class shopping_mode extends StatefulWidget {
   const shopping_mode({Key? key}) : super(key: key);
@@ -55,7 +56,7 @@ class _shopping_mode_state extends State<shopping_mode> {
                               onPressed: () => showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
-                                      cam_or_mic()),
+                                      cam_and_mic()),
                               child: Text('Load Grocery List',
                                   style: TextStyle(
                                       color: Color.fromRGBO(233, 233, 233, 1))),
@@ -176,7 +177,7 @@ class _shopping_mode_state extends State<shopping_mode> {
         ));
   }
 
-  Widget cam_or_mic() {
+  /*Widget cam_or_mic() {
     return AlertDialog(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
@@ -220,5 +221,5 @@ class _shopping_mode_state extends State<shopping_mode> {
                 )),
           ],
         ));
-  }
+  }*/
 }
