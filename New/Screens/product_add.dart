@@ -61,25 +61,22 @@ class _product_add_pageState extends State<product_add_page> {
     }
   }
 
-  Future<void> _numberShow() async {
-    NumberPicker value = await NumberPicker(
-        minValue: 1, maxValue: 15, value: 1, onChanged: _handleValueChanged);
-    // if (value is int) {
-    //   setState(() => _currentIntValue = value.toString());
-  }
-
   Future<void> _numberShow1() async {
     int? currentValue = 1;
     showDialog<int>(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text("Quantity"),
+            backgroundColor: AppColors.LIGHT_PINK,
+            title: Text("Quantity",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: AppColors.PURPLE, fontFamily: "Rationale")),
             content: StatefulBuilder(builder: (context, SBsetState) {
               return NumberPicker(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppColors.BLUE),
+                    border: Border.all(color: AppColors.PURPLE),
                   ),
                   //  axis: Axis.horizontal,
                   haptics: true,
@@ -95,8 +92,11 @@ class _product_add_pageState extends State<product_add_page> {
                   });
             }),
             actions: [
-              TextButton(
-                child: Text("OK"),
+              IconButton(
+                icon: Icon(
+                  Icons.check,
+                  color: AppColors.PURPLE,
+                ),
                 onPressed: () {
                   setState(() {
                     print(currentValue);
