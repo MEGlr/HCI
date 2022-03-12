@@ -2,6 +2,7 @@ import 'package:first_app/constants/appcolors.dart';
 import 'package:first_app/Screens/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:first_app/Screens/my_shopping_cart.dart';
 
 class shopping_mode extends StatefulWidget {
   const shopping_mode({Key? key}) : super(key: key);
@@ -29,7 +30,10 @@ class _shopping_mode_state extends State<shopping_mode> {
               IconButton(
                 icon: const Icon(Icons.shopping_cart),
                 tooltip: 'Shopping Cart',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => shopping_cart()));
+                },
               )
             ],
             backgroundColor: AppColors.LIGHT_BLUE),
@@ -74,15 +78,31 @@ class _shopping_mode_state extends State<shopping_mode> {
                       ],
                     )))),
         bottomNavigationBar: BottomAppBar(
-            //shape: CircularNotchedRectangle(),
-            // notchMargin: 25,
-            child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[ShoppingModeButton(context)]),
-            color: AppColors.LIGHT_BLUE,
-            elevation: 0),
-        floatingActionButton: CameraButton(),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(onPressed: () {}, icon: const Icon(null))
+            ],
+          ),
+          color: AppColors.LIGHT_BLUE,
+        ),
+        floatingActionButton: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            //SizedBox(height: 20),
+            Container(
+                // alignment: Alignment.bottomRight,
+                padding: EdgeInsets.only(left: 30.0, bottom: 1.0),
+                child: CameraButton()),
+            Container(
+                //alignment: Alignment.bottomLeft,
+                margin: EdgeInsets.all(10),
+                child: ShoppingModeButton(context)),
+          ],
+        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.startDocked);
   }
 
@@ -91,7 +111,7 @@ class _shopping_mode_state extends State<shopping_mode> {
         child: Container(
             child: Image.asset(
           'images/shopping_mode_on.png',
-          height: 90,
+          height: 130,
           alignment: Alignment.bottomRight,
         )),
         onTap: null);
