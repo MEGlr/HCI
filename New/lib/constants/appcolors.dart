@@ -11,5 +11,6 @@ class AppColors {
   static const GREY = Color(0xFFC4C4C4);
   static const MOODY_PINK = Color(0xFFEFCFD0);
   static const LIGHT_PINK = Color(0xFFF7EEEF);
+  static const PINK_PINK = Color(0xFFFFC1EB);
   static const LIGHT_PURPLE = Color.fromRGBO(199, 184, 248, 1);
 }
