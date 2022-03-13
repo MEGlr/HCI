@@ -3,6 +3,7 @@ import 'package:first_app/Screens/add_product.dart';
 import 'package:flutter/material.dart';
 //import 'package:first_app';
 import 'package:first_app/constants/appcolors.dart';
+import 'package:first_app/buttons/cam_mic.dart';
 
 class Form_Field extends StatefulWidget {
   final String maintitle;
@@ -32,7 +33,7 @@ class _Form_FieldState extends State<Form_Field> {
   Color color = AppColors.PURPLE;
   bool isSelected = false;
   String image = 'images/cam_mic.png';
-  Widget Function() createPage = () => add_product();
+  //Widget Function() createPage = () => add_product();
   bool isVisible = true;
   double edge = 0;
   TextEditingController? controller;
@@ -49,7 +50,7 @@ class _Form_FieldState extends State<Form_Field> {
     data = widget.maintitle;
     color = widget.color;
     image = widget.image;
-    createPage = widget.createPage;
+    //createPage = widget.createPage;
     edge = widget.edges;
     validator = widget.validator;
     controller = widget.controller;
@@ -61,13 +62,13 @@ class _Form_FieldState extends State<Form_Field> {
     // bool newSelected = isSelected; //dk why needed
     return Container(
       child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: TextFormField(
-            controller: controller,
-            cursorColor: Colors.white,
-            style: TextStyle(color: Colors.white),
-            validator: validator,
-            decoration: InputDecoration(
+        padding: const EdgeInsets.all(10.0),
+        child: TextFormField(
+          controller: controller,
+          cursorColor: Colors.white,
+          style: TextStyle(color: Colors.white),
+          validator: validator,
+          decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(edge),
                 borderSide: BorderSide.none,
@@ -79,16 +80,12 @@ class _Form_FieldState extends State<Form_Field> {
               hintText: data,
               hintStyle: TextStyle(color: Colors.white),
               suffixIcon: IconButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (BuildContext context) {
-                    return createPage();
-                  }));
-                },
-                icon: Image.asset(image, color: Colors.white),
-              ),
-            ),
-          )),
+                  icon: Image.asset(image, color: Colors.white),
+                  onPressed: () => showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => cam_and_mic()))),
+        ),
+      ),
     );
   }
 }
