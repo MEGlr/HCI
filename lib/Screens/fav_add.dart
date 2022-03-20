@@ -203,6 +203,7 @@ class _fav_add_pageState extends State<fav_add_page> {
                                           name: _nameController.text,
                                           type: _typeController.text,
                                           notify: MyData.globally_selected);
+                                      print(MyData.globally_selected);
                                       Navigator.pop(context, entry);
                                     }
                                   },

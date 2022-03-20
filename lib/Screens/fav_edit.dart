@@ -183,10 +183,10 @@ class _fav_edit_pageState extends State<fav_edit_page> {
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
                                       final entry = FavoriteItem(
-                                        brand: _brandController.text,
-                                        name: _nameController.text,
-                                        type: _typeController.text,
-                                      );
+                                          brand: _brandController.text,
+                                          name: _nameController.text,
+                                          type: _typeController.text,
+                                          notify: MyData.globally_selected);
                                       Navigator.pop(context, entry);
                                     }
 

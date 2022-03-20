@@ -50,7 +50,7 @@ class _fav_list_state extends State<fav_list> {
         notify: _newEntry.notify,
         //selected: _newEntry.selected
       ));
-
+      print(_newEntry.notify);
       //if (_newEntry.notify) {
       NotificationApi.showWeeklyNotification(
         id: (_favorites.length - 1),
@@ -102,6 +102,7 @@ class _fav_list_state extends State<fav_list> {
       _favorites[index].brand = _newEntry.brand;
       _favorites[index].type = _newEntry.type;
       _favorites[index].name = _newEntry.name;
+      _favorites[index].notify = _newEntry.notify;
     }
     MyData.globally_selected = false;
     setState(() {});
